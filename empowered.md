@@ -1,0 +1,143 @@
+'''
+Name "Empowerer Automatisation - EMCLink + Ae2 Storage"
+-- Only thing to modify is the slot of where did you put the item
+-- on the EMC link or Ae2 Interface
+
+Every tick do
+    input fe:: from Capacitor
+    output fe:: to Stand,Empowered
+End
+
+-- Redstone
+Every 20 ticks do
+    if RedStand has eq 0 dye then
+    input 1 from EMC slot 1 
+    output to RedStand
+
+    else if RedStand has eq 0 redstone then
+    input 1 from EMC slot 2
+    output to RedStand
+
+    else if RedStand has eq 0 brick then
+    input 1 from EMC slot 3 
+    output to RedStand
+
+    else if RedStand has eq 0 netherbrick then
+    input 1 from Interface slot 7
+    output to RedStand
+    end
+
+    input from Interface slot 5
+    output to RedMain
+End
+
+-- Lapis
+Every 20 ticks do
+    if LapStand has eq 0 dye then
+    input 1 from EMC slot 10 
+    output to LapStand
+
+    else if LapStand has le 2 prismarine then
+    input 1 from Interface slot 6
+    output to LapStand
+    end
+
+    input from Interface slot 4
+    output to LapMain
+End
+
+-- Diamand
+Every 20 ticks do
+    if DiamStand has le 1 clay_ball then
+    input 1 from EMC slot 19 
+    output to DiamStand
+
+    else if DiamStand has eq 0 dye then
+    input 1 from EMC slot 21
+    output to DiamStand
+
+    else if DiamStand has eq 0 clay then
+    input from EMC slot 20
+    output to DiamStand
+    end
+
+    input from Interface slot 0
+    output to DiamMain
+End
+
+-- Coal
+Every 20 ticks do
+    if CoalStand has eq 0 coal then
+    input 1 from EMC slot 29
+    output to CoalStand
+
+    else if CoalStand has eq 0 flint then
+    input 1 from EMC slot 28
+    output to CoalStand
+
+    else if CoalStand has eq 0 stone then
+    input 1 from EMC slot 31 
+    output to CoalStand
+
+    else if CoalStand has eq 0 dye then
+    input 1 from EMC slot 30
+    output to CoalStand
+    end
+
+    input from Interface slot 2
+    output to CoalMain
+End
+
+-- Emerald
+Every 20 ticks do
+    if EmStand has eq 0 sapling then
+    input 1 from EMC slot 37
+    output to EmStand
+
+    else if EmStand has eq 0 slime_ball then
+    input 1 from EMC slot 38
+    output to EmStand
+
+    else if EmStand has eq 0 tallgrass then
+    input 1 from EMC slot 39 
+    output to EmStand
+
+    else if EmStand has eq 0 dye then
+    input 1 from EMC slot 40
+    output to EmStand
+    end
+
+    input from Interface slot 3
+    output to EmMain
+End
+
+-- Iron
+Every 20 ticks do
+    if IronStand has eq 0 stone_button then
+    input 1 from EMC slot 46
+    output to IronStand
+
+    else if IronStand has eq 0 snowball then
+    input 1 from EMC slot 47
+    output to IronStand
+
+    else if IronStand has eq 0 cobblestone then
+    input 1 from EMC slot 48 
+    output to IronStand
+
+    else if IronStand has eq 0 dye then
+    input 1 from EMC slot 49
+    output to IronStand
+    end
+
+    input from Interface slot 1
+    output to IronMain
+End
+
+Every 1 second do
+    if Empowered has ge 1 *empowered* then
+    input *empowered* from Empowered
+    output to Chest
+    end
+End
+'''
